@@ -1,16 +1,59 @@
-# React + Vite
+# Vitalis — Multi-Tenant Hospital Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A landing page, hospital admin dashboard, and a separate super admin
+(platform) portal, built with React + Tailwind CSS + Vite.
 
-Currently, two official plugins are available:
+## Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+src/
+  main.jsx                 entry point
+  App.jsx                  top-level screen switcher (landing / tenant / super)
+  styles/
+    tokens.js               color tokens — edit these to re-theme the app
+    index.css               Tailwind directives, fonts, keyframes
+  components/
+    ui/                      Badge, Card, StatCard, Table, SearchBox, PulseLine
+    layout/
+      Shell.jsx              shared sidebar + topbar shell for both dashboards
+  data/
+    mockData.js              all mock/demo data in one place — replace with API calls
+  pages/
+    Landing.jsx              marketing / landing page
+    tenant/                  hospital admin dashboard (light theme)
+      TenantAdminApp.jsx     tab router + sidebar nav
+      TenantOverview.jsx
+      TenantPatients.jsx
+      TenantAppointments.jsx
+      TenantDoctors.jsx
+      TenantBilling.jsx
+      TenantSettings.jsx
+    super/                   super admin / platform portal (dark theme)
+      SuperAdminApp.jsx      tab router + sidebar nav
+      SuperOverview.jsx
+      SuperTenants.jsx       suspend/activate tenant hospitals
+      SuperHealth.jsx
+```
 
-## React Compiler
+## Run it
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Then open the printed local URL. Click through from the landing page:
+"Hospital sign in" / "Get started" → tenant admin dashboard.
+Footer → "Platform admin portal" → super admin portal.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Wiring up real data
+
+Everything in `src/data/mockData.js` is placeholder. Replace each export
+with a fetch/React Query call and the pages will keep working unchanged,
+since components only read the shape of that data (arrays of objects),
+not where it comes from.
+
+## Theming
+
+All colors live in `src/styles/tokens.js`. Change a hex there and it
+updates across landing, tenant admin, and super admin.
