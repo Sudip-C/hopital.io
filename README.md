@@ -1,5 +1,5 @@
 ### find the demo here:
-[![Live Demo](https://hopital-pjv9bnlxg-sudipcs-projects.vercel.app/)](https://hopital-pjv9bnlxg-sudipcs-projects.vercel.app/)
+[![Live Demo](https://hopital-pjv9bnlxg-sudipcs-projects.vercel.app/)](https://hopital-io.vercel.app/)
 <img width="2844" height="1380" alt="image" src="https://github.com/user-attachments/assets/dde771f3-36a4-4252-90ab-78440e3d9fca" />
 
 <img width="2844" height="1442" alt="image" src="https://github.com/user-attachments/assets/49329370-2fb0-497d-a61a-f5ace721bb39" />
